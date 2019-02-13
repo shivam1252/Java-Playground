@@ -1,0 +1,62 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    String str = in.nextLine();
+    StringBuilder sb = new StringBuilder("");
+    StringBuilder temp= new StringBuilder("");
+    int count = 0;
+    int largest = 0;
+    for(int i = 0; i < str.length(); i++)
+    {
+      if((str.charAt(i) >= '0') && (str.charAt(i) <= '9'))
+      {
+        count += str.charAt(i);
+        sb.append(str.charAt(i));
+        //System.out.println(count);
+      }
+      else
+      {
+       if(count > largest)
+       {
+        temp = new StringBuilder(""); 
+        largest = count;
+        temp.append(sb);
+        count = 0;
+        sb = new StringBuilder(""); 
+       }
+       else
+        {
+          count = 0;
+          sb = new StringBuilder("");
+        }
+      }
+    }
+    if(count > largest)
+    {
+    System.out.print(sb);
+    }
+    else
+    {
+      System.out.print(temp);
+    }    
+  }
+}
+
+
+/*
+Sample Input - 1:
+100klh564abc365bg
+
+Sample Output - 1:
+564
+
+Sample Input - 2:
+Abchsd0sdhs
+
+Sample Output - 2:
+0
+
+*/

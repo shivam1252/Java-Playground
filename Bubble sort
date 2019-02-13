@@ -1,0 +1,39 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int arr[] = new int[n];
+    for(int a = 0; a < n; a++)
+    {
+      arr[a] = sc.nextInt();
+    }
+    int temp = 0;
+    for(int i = 0; i < n; i++)
+    {
+      for(int j = 0; j < n-1-i; j++)
+      {
+        if(arr[j] > arr[j+1])
+        {
+          temp = arr[j];
+          arr[j] = arr[j+1];
+          arr[j+1] = temp;
+        }
+      }
+    }
+    for(int k = 0; k < n; k++)
+    {
+      System.out.print(arr[k] +" ");
+    }
+  }
+}
+
+/*
+(Hint: Bubble sort is a type of sorting that works by repeatedly stepping through the lists that need to be sorted, 
+ by comparing each pair of adjacent items and swapping them if they are in the wrong order)
+*/
+
+

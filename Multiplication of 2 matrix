@@ -1,0 +1,48 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int row = 2;
+    int column = 2;
+    int mat1[][] = new int[row][column];
+    int mat2[][] = new int[row][column];
+    int mat3[][] = new int[row][column];
+    for(int a = 0; a < row; a++)
+    {
+      for(int b = 0; b < column; b++)
+      {
+        mat1[a][b] = in.nextInt();
+      }
+    }
+    for(int a = 0; a < row; a++)
+    {
+      for(int b = 0; b < column; b++)
+      {
+        mat2[a][b] = in.nextInt();
+      }
+    }
+    
+    for(int i = 0; i < row; i++)
+    {
+     for(int j = 0; j < mat2[i].length; j++)
+      {
+       int sum = 0;
+        for(int k = 0; k < mat1[i].length; k++)
+        {
+          sum += mat1[i][k] * mat2[k][j];
+        }
+       mat3[i][j] = sum;
+      }
+    }
+    for(int a = 0; a < mat3.length; a++)
+    {
+      for(int b = 0; b < mat3[a].length; b++)
+      {
+        System.out.print(mat3[a][b] +" ");
+      }
+       System.out.println(); 
+    }
+  }
+}

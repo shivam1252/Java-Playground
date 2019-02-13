@@ -1,0 +1,44 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Scanner in = new Scanner(System.in);
+    String str = in.nextLine();
+    int rot = in.nextInt();
+    StringBuilder sbl = new StringBuilder(str);
+    StringBuilder sbr = new StringBuilder(str);
+    LeftRotate(sbl, rot);
+    System.out.println(sbl);
+    RightRotate(sbr, rot);
+    System.out.println(sbr);
+  }
+  public static StringBuilder LeftRotate(StringBuilder sbl, int rot)
+  {
+    for(int i = 0; i < rot; i++)
+    {
+      char temp = sbl.charAt(0);
+      for(int j = 1; j < sbl.length(); j++)
+      {
+        sbl.setCharAt(j-1, sbl.charAt(j));
+      }
+      sbl.setCharAt(sbl.length() - 1, temp);
+    }
+    return sbl;
+  }
+  
+   public static StringBuilder RightRotate(StringBuilder sbr, int rot)
+   {
+     for(int i = 0; i < rot; i++)
+     {
+       char temp = sbr.charAt(sbr.length() - 1);
+       for(int j = sbr.length() - 1; j > 0; j--)
+       {
+         sbr.setCharAt(j, sbr.charAt(j-1));
+       }
+       sbr.setCharAt(0, temp);
+     }
+     return sbr;
+   }
+}

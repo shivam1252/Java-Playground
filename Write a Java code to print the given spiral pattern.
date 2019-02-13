@@ -1,0 +1,50 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();  // n == 5;
+    int min_row = 0;
+    int max_row = n-1;
+    int min_col = 0;
+    int max_col = n-1;
+    int arr[][] = new int[n][n];
+    int k = 1;
+    while((min_row <= max_row) && (min_col <= max_col))
+    {
+      for(int i = min_col; (i <= max_col); i++)  //left to right;
+      {
+        arr[min_row][i] = k++;
+      }
+      
+      for(int j = min_row + 1; (j <= max_row); j++)   //top to bottom;
+      {
+        arr[j][max_col] = k++;
+      }
+      
+      for(int l = max_col -1; (l >= min_col); l--)  //right to left;
+      {
+        arr[max_row][l] = k++;
+      }
+      
+      for(int m = max_row - 1; (m >= min_row + 1); m--)  //bottom to top;
+      {
+        arr[m][min_col] = k++;
+      }
+      
+       min_row++;
+       max_row--;
+       min_col++;
+       max_col--;
+    }
+    for(int a = 0; a < n; a++)
+    {
+      for(int b = 0; b < n; b++)
+      {
+        System.out.print(arr[a][b] +" ");
+      }
+      System.out.println();
+    }
+  }    
+}

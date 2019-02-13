@@ -1,0 +1,48 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int val = sc.nextInt();
+    int arr[] = new int[n];
+    //int temp[] = new int[10];
+    for(int a = 0; a < n; a++)
+    {
+      arr[a] = sc.nextInt();
+    }
+    //int arr_idx = 0;
+    int smallest = 0;
+    for(int i = 0; i < n; i++)
+    {
+      int count = 0;
+      int index = 0;
+      for(int j = i; j < n; j++)
+      {
+        count += arr[j];
+        index++;
+        if(count > val)
+        {
+         if((index < smallest) || (smallest == 0))
+         {
+           smallest = index;
+         }
+        }  
+      }
+    }
+      System.out.print(smallest); 
+  }
+}
+
+/*
+Sample Input:
+
+		arr_size = 4
+		arr[] = {1, 2, 3, 4}
+		val = 8
+
+Sample Output:
+		3
+*/

@@ -1,0 +1,40 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Scanner in = new Scanner(System.in);
+    String str = in.nextLine();
+    StringBuilder sb = new StringBuilder(str);
+    //StringBuilder temp = new StringBuilder(temp);
+    for(int i = 0; i < sb.length(); i++)
+    {
+      int count = 1;
+      if(sb.charAt(i) != '$')
+       {
+       for(int j = i+1; j < sb.length(); j++)
+       {
+        if(sb.charAt(i) == sb.charAt(j))
+           {
+             count++;
+             sb.setCharAt(j, '$');
+           }  
+       }
+        System.out.print(sb.charAt(i));
+        System.out.print(count);
+       } 
+      }
+   }
+}
+
+Sample Input - 1:
+
+aaaabbccc
+
+Sample Output - 1:
+
+a4b2c3
+
+
+

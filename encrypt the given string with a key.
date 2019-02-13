@@ -1,0 +1,39 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    StringBuilder sb = new StringBuilder(in.nextLine());
+    int key = in.nextInt();
+    for(int i = 0; i < sb.length(); i++)
+    {
+      if(sb.charAt(i) != ' ')
+      {
+        if((sb.charAt(i) + key) > 122)
+        {
+          int a = ((sb.charAt(i) + key) - 122);
+          char ch = (char)('a' + (a-1));
+          sb.setCharAt(i, ch);
+        }
+        else
+        {
+          char ch = (char) (sb.charAt(i) + key);
+          sb.setCharAt(i, ch);
+        }
+      }
+    }
+    System.out.print(sb);
+  }
+}
+
+/*
+Sample Input:
+		str[] = attack the enemy
+		Key = 5
+
+Sample Output:
+		fyyfhp ymj jsjrd
+
+
+*/

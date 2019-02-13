@@ -1,0 +1,36 @@
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    //Scanner sc = new Scanner(System.in);
+    int n = 10;
+    int arr[] = { 2, 5, 8, 12, 16, 19, 23, 38, 66, 78};
+    int search_elem = 16;
+    int start = 0;
+    int end = n;
+    int count = 0;
+    while(start <= end)
+    {
+      int mid = (start + end) / 2;
+      if(arr[mid] == search_elem)
+      {
+        System.out.print(mid);
+        count = 1;
+        break;
+      }
+      else if(search_elem > arr[mid])
+      {
+        start = mid + 1;
+      }
+      else
+      {
+        end = mid - 1;
+      }
+    }
+    if(count == 0)
+    {
+      System.out.print("-1");
+    }
+  }
+}

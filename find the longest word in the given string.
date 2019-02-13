@@ -1,0 +1,56 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner sc = new Scanner(System.in);
+    StringBuilder sb = new StringBuilder(sc.nextLine());
+    StringBuilder temp = new StringBuilder("");
+    StringBuilder w = new StringBuilder("");
+    int count = 0;
+    int largest = 0;
+    for(int i = 0; i < sb.length(); i++)
+    {
+      if(sb.charAt(i) == ' ')
+      {
+        if(count > largest)
+        {
+          w = new StringBuilder("");
+          largest = count;
+          w.append(temp);
+          count = 0;
+          temp = new StringBuilder("");
+        }
+        else
+        {
+          count = 0;
+          temp = new StringBuilder("");
+          
+        }
+      }
+      else
+      {
+        count++;
+        temp.append(sb.charAt(i));
+      }
+    }
+    if(largest > count)
+    {
+      System.out.println(largest);
+      System.out.print(w);
+    }
+    else
+    {
+      System.out.println(count);
+      System.out.print(temp);             
+     }  
+  }
+  }
+  
+  /*
+Sample Input:
+		sentence[] = Programmer world
+
+Sample Output:
+		Programmer
+  */
