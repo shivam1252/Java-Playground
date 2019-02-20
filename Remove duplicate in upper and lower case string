@@ -1,0 +1,45 @@
+import java.util.Scanner;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner in = new Scanner(System.in);
+    String str = new String(in.nextLine());
+    String org[] = str.split(" ");
+    String str1 = str.toLowerCase();
+    String temp[] = str1.split(" ");
+    
+    for(int i = 0; i < temp.length-1; i++)
+    {
+      if(temp[i] != null)
+      {
+       for(int j = i+1; j < temp.length; j++)
+       {
+        if(temp[i].equals(temp[j]))
+        {
+          org[j] = null;
+          temp[j] = null;
+        }
+       }
+      }
+    }
+    for(int a = 0; a < org.length; a++)
+    {
+      if(org[a] != null)
+      {
+        System.out.print(org[a] +" ");
+      }
+    }
+    
+  }
+}
+
+/*
+Inputs:
+Hello hello Ab aB
+Reya is is the the best player in eye eye game
+
+Outputs:
+Hello Ab
+Reya is the best player in eye game
+*/
